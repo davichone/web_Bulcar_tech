@@ -403,6 +403,113 @@ a:hover {
 }
 
 /* =============================================
+       Photos enterprise
+   ============================================= */
+/* --- SLIDER FULL WIDTH (UI/UX Expert) --- */
+
+.slider-fw-section {
+    width: 100vw; /* 100% del ancho de la ventana del navegador */
+    margin-left: calc(-50vw + 50%); /* Truco avanzado para romper los márgenes de contenedores padres */
+    position: relative;
+    overflow: hidden;
+    background-color: #000;
+}
+
+.slider-fw-container {
+    width: 100%;
+    position: relative;
+    border-top: 5px solid #A7C7E7;
+}
+
+.slider-fw-track {
+    display: flex;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1); /* Transición mucho más profesional y fluida */
+}
+
+.slide-fw {
+    min-width: 100vw; /* Cada foto ocupa toda la pantalla a lo ancho */
+    height: 700px; /* Altura imponente */
+    position: relative;
+}
+
+.slide-fw img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Evita que las fotos se aplasten */
+}
+
+/* El Gradiente Oscuro para legibilidad perfecta (Principio de Accesibilidad UX) */
+.slide-fw-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.2) 50%, transparent 100%);
+    display: flex;
+    align-items: flex-end; /* Manda el texto hacia abajo */
+    justify-content: center;
+    padding-bottom: 80px;
+}
+
+.slide-fw-content {
+    text-align: center;
+    color: #ffffff;
+    max-width: 800px;
+    padding: 0 20px;
+}
+
+.slide-fw-content h2 {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.slide-fw-content p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+/* Botones minimalistas */
+.fw-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.4);
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    font-size: 24px;
+    border-radius: 50%; /* Botones redondos se ven más modernos */
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px); /* Efecto cristal moderno */
+}
+
+.fw-btn:hover {
+    background: #229797; /* Tu color de marca */
+    border-color: #229797;
+    transform: translateY(-50%) scale(1.1); /* Crece un poco al pasar el mouse */
+}
+
+.prev-fw { left: 30px; }
+.next-fw { right: 30px; }
+
+/* Responsive para celulares */
+@media (max-width: 768px) {
+    .slide-fw { height: 400px; }
+    .slide-fw-content h2 { font-size: 2rem; }
+    .fw-btn { width: 45px; height: 45px; font-size: 18px; }
+    .prev-fw { left: 10px; }
+    .next-fw { right: 10px; }
+}
+
+
+
+
+/* =============================================
         carrusel Logos Clientes (empresas)
    ============================================= */
 
@@ -429,7 +536,7 @@ a:hover {
 
 .carousel-container {
     width: 90%;
-    max-width: 900px; /* <--- AQUÍ limitas el ancho para que no sea toda la pantalla */
+    max-width: 1300px; /* <--- AQUÍ limitas el ancho para que no sea toda la pantalla */
     overflow: hidden; /* Esconde los logos que van saliendo */
     position: relative;
     background: white; /* Opcional: un fondo blanco pastel para los logos */
@@ -441,9 +548,10 @@ a:hover {
 .carousel-track {
     display: flex;
     align-items: center;
-    gap: 60px; /* Espacio entre logos */
+    gap: 70px; /* Espacio entre logos */
+    width: max-content;
     /* Si vas a usar animación automática, agrégala aquí */
-    animation: scroll 20s linear infinite;
+    animation: scroll 15s linear infinite;  /* velocidad del carrusel */
 }
 
 .logo-item img {
@@ -458,6 +566,10 @@ a:hover {
     filter: grayscale(0%); /* A color al pasar el mouse */
     opacity: 1;
     transform: scale(1.4);
+    
+}
+.carousel-container:hover .carousel-track {
+    animation-play-state: paused;
 }
 
 /* Animación simple de desplazamiento */
