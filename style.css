@@ -14,34 +14,40 @@ h1, h2, h3, .formulario_titulo {
 
 /* modo DESKTOP */
 
-/* estilo para la parte superior (top-bar) */
-.topbar-carrusel {
+/* 1. EL FONDO (100% ancho) */
+.topbar-fondo {
     width: 100%;
-    overflow: hidden;
     background: #A7C7E7;
-    white-space: nowrap; /* Evita que los spans se amontonen abajo */
+    /* Aquí NO va el overflow, para que el fondo llegue a las esquinas */
 }
 
+/* 2. EL CENTRADOR (1200px) */
+.topbar-centrado {
+    max-width: 900px;
+    margin: 0 auto; /* Lo mantiene al centro de la web */
+    overflow: hidden; /* ESTA ES LA CLAVE: Corta el texto justo a los 1200px */
+}
+
+/* 3. LA PISTA EN MOVIMIENTO */
 .carrusel-track {
     display: flex;
-    width: max-content; /* IMPORTANTE: obliga al div a ser tan largo como sus hijos */
+    width: max-content; /* Permite que la pista sea larguísima */
     animation: scroll 15s linear infinite;
 }
 
 .carrusel-track span {
-    display: inline-block;
-    padding: 0 60px; /* Dale buen espacio para que respire */
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 1px 50px;
     color: black;
+   
 }
 
+/* LA ANIMACIÓN */
 @keyframes scroll {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        /* Se mueve exactamente el 50% del track (que es el primer grupo de spans) */
-        transform: translateX(-50%); 
-    }
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
 }
 
 
@@ -512,4 +518,111 @@ a:hover {
         
     }
 
+}
+
+/* corizar.html ---------------------------------------------------------------------------------------------------------------- */
+/* --- ESTILOS PÁGINA COTIZAR --- */
+
+.cotizar-main {
+    flex: 1; /* Para el Sticky Footer que ya configuramos */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f0f2f5; /* Un gris muy claro para que la tarjeta resalte */
+    padding: 60px 20px;
+}
+
+.cotizar-container {
+    width: 100%;
+    max-width: 600px;
+}
+
+.cotizar-card {
+    background: #ffffff;
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.icon-main {
+    font-size: 50px;
+    color: #229797; /* El verde/celeste de tu marca */
+    margin-bottom: 20px;
+}
+
+.cotizar-header h1 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.cotizar-header p {
+    color: #666;
+    margin-bottom: 30px;
+}
+
+/* Sección de botón de WhatsApp */
+.opcion-wsp {
+    background: #f9f9f9;
+    padding: 25px;
+    border-radius: 10px;
+    border: 1px solid #eee;
+    margin-bottom: 25px;
+}
+
+.opcion-wsp h3 {
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.wsp-btn-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background-color: #25D366; /* Verde Oficial WhatsApp */
+    color: white;
+    text-decoration: none;
+    padding: 15px 25px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: 0.3s;
+}
+
+.wsp-btn-link:hover {
+    background-color: #1DA851;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+}
+
+/* Íconos de información extra */
+.opcion-info {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.85rem;
+    color: #888;
+}
+
+.info-item i {
+    color: #229797;
+}
+
+/* Ajuste móvil */
+@media (max-width: 480px) {
+    .cotizar-card {
+        padding: 25px 15px;
+    }
+    .cotizar-header h1 {
+        font-size: 1.5rem;
+    }
 }
