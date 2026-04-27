@@ -1,0 +1,515 @@
+/* RESET UNIVERSAL */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* vh significa "view height", o sea, el alto de la pantalla */
+    margin: 0;
+    font-family: 'Roboto', sans-serif; /* Fuente principal para lectura */
+}
+
+h1, h2, h3, .formulario_titulo {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700; /* Negrita para resaltar */
+}
+
+/* modo DESKTOP */
+
+/* estilo para la parte superior (top-bar) */
+.topbar-carrusel {
+    width: 100%;
+    overflow: hidden;
+    background: #A7C7E7;
+    white-space: nowrap; /* Evita que los spans se amontonen abajo */
+}
+
+.carrusel-track {
+    display: flex;
+    width: max-content; /* IMPORTANTE: obliga al div a ser tan largo como sus hijos */
+    animation: scroll 15s linear infinite;
+}
+
+.carrusel-track span {
+    display: inline-block;
+    padding: 0 60px; /* Dale buen espacio para que respire */
+    color: black;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        /* Se mueve exactamente el 50% del track (que es el primer grupo de spans) */
+        transform: translateX(-50%); 
+    }
+}
+
+
+
+
+/* para el menu de categorias de la web */
+
+.main-header {
+    background-color:floralwhite; 
+    width: 100%;
+    padding: 10px 0;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 5%;
+}
+
+
+.main-nav ul {
+    display: flex;
+    list-style: none; /* delete los puntitos del lista */
+    gap: 30px; /* space entre categories */
+    
+
+}
+.btn-cotizar {
+    color:white !important;
+    padding: 8px 20px;
+    border-radius: 4px; /* Bordes ligeramente suavizados, pero rectangulares */
+    background-color: #2966C4;
+    
+    
+}
+
+.btn-cotizar:hover {
+    background-color:orange /* #a7c7e7 */; /* Se rellena de azul bajo */
+    color: black !important; /* El texto cambia a blanco para contrastar */
+  }
+
+.main-nav a {   /* editar las categorias (anchor, ancla) -> "a" */
+   
+  color: black;
+    font-size: 1.1rem;
+    transition: 0.5s;
+    text-decoration: none;
+}
+
+.main-nav a:hover {         /* pasar cursor en las categorias (anchor, ancla) -> "a" */
+    color:blue;
+    font-weight: bold;
+    
+}
+
+/* 1. El contenedor del logo ahora sí dictará la altura */
+/* 1. Forzamos al contenedor a mantener su tamaño */
+.logo {
+    color: black;
+}
+/* .logo {
+    display: flex;
+    align-items: center;
+    position: relative;
+    height: 60px; /* <--- ESTA es la altura máxima de tu header 
+} */
+
+/* 2. El logo puede ser más grande que el contenedor */
+/* .logo img {
+    height: 140px; /* <--- El logo mide 100px, pero el div solo 60px 
+    width: auto;
+    position: absolute; /* Permite que el logo "flote" sobre el header 
+    top: 50%;
+    transform: translateY(-50%); /* Lo centra verticalmente perfecto 
+    z-index: 100; /* Asegura que el logo esté por encima de lo que venga abajo 
+    transition: transform 0.3s ease;
+} */ 
+
+/* 3. Ajuste para el H1 (invisible para el usuario) */
+/* .logo h1 {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+} */
+/* hero section (imagen) */
+.hero {
+    /* Aquí pones la ruta de tu imagen */
+    background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('img/bg_banner.jpg');
+    background-size: cover;       /* La imagen siempre llena el espacio sin deformarse */
+    background-position: center;   /* Centra la imagen */
+    height: 60vh;                 /* Ocupa el 80% de la altura de la pantalla */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #f5f0e8;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+.color-hero {
+    color: #61C4FA;
+}
+
+/* Estilo del botón (Similar al visto en la Sesión 04) */
+.btn-main {
+    background-color:  transparent;
+    color: white;
+    border: 2px solid #84b6f4;
+    padding: 10px 30px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-main:hover {
+    color: white;
+    background-color: #2966C4; /* Efecto hover visto en clase [cite: 791] */
+}
+.slogan {
+    padding: 15px;
+}
+
+
+/* cards paquetes fullday */
+.paquetes-container {
+    padding: 60px 5%;
+    background-color: #fff;
+    text-align: center;
+}
+
+.cards-wrapper {
+    display: flex;
+     flex-wrap: nowrap;         /* Permite que bajen si no caben */
+    justify-content: center; /* Centra las tarjetas */
+    gap: 30px;               /* Espacio entre tarjetas */
+    margin-top: 30px;
+}
+
+.card {
+    background: #E5E1E1;     /* Color gris claro visto en clase  */
+    border-radius: 10px;     /* Bordes redondeados profesionales  */
+    width: 300px;            /* Ancho fijo en PC [cite: 780] */
+    box-shadow: 10px 10px 5px #888; /* Sombra enseñada en  04  */
+    overflow: hidden;        /* Para que la imagen no se salga de las esquinas */
+    transition: transform 0.3s;
+   
+
+}
+
+.card:hover {
+    transform: scale(1.05);  /* Efecto de agrandado visto en clase  */
+}
+
+.card-img {
+    width: 100%;             /* La imagen ocupa todo el ancho de la tarjeta [cite: 958] */
+    height: 180px;           /* Altura fija para que todas se vean iguales [cite: 1387] */
+    object-fit: cover;
+}
+
+.card-info {
+    padding: 20px;
+}
+
+.btn-detalle {
+    display: block;
+    background: green;       /* Estilo de botón del material  */
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    margin-top: 15px;
+    border-radius: 5px;
+}
+
+/* FORmulario de contacto----------------------------------------------------------------- */
+.formulario-contacto {
+    flex: 1; 
+    width:500px;
+    max-width: 100%;
+    margin:auto;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    padding: 20px;
+    box-shadow: 0 0 20px 1px rgba(0,0,0,0.3);
+    /* 0 en desplazamiento, 20 en difuminado, rgba los colores,
+    el 0.3 es la transprencia*/
+    position:relative;
+    /*Porque después se va a
+    posicionar otro elemento en base al formulario*/
+  
+   
+  
+}
+
+.formulario-titulo {
+    text-align: center;
+    margin-top: 0;
+    color:rgba(0,0,0,0.7);
+}
+
+.formulario_label, .formulario_submit, .formulario_input {
+    display: block; /*para que se aprecie uno debajo de otro*/
+    width: 90%;
+}
+
+.formulario_submit {
+   background: green;
+    color:#fff;
+    padding: 10px 20px;
+    cursor:pointer;
+    border:none;
+    margin:8px;
+}
+
+.formulario_submit:hover{
+    background: #229797;
+}
+
+/* CARRUSEL DE LOGOS CLIENTES */
+.seccion-logos {
+    padding: 60px 0;
+    background-color: white; /* Tu azul bajo de fondo */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+   
+}
+.titulo-confianza {
+    color: #61C4FA; /* El mismo azul bajo de tus otros textos */
+    font-size: 24px;
+    font-weight: 400; /* Estilo elegante, no tan grueso */
+    text-transform: uppercase; /* Opcional: le da un toque más corporativo */
+    letter-spacing: 2px; /* Un poco de aire entre letras */
+    position: relative;
+    transition: font-weight 0.3s ease;
+}
+
+
+.carousel-container {
+    width: 90%;
+    max-width: 900px; /* <--- AQUÍ limitas el ancho para que no sea toda la pantalla */
+    overflow: hidden; /* Esconde los logos que van saliendo */
+    position: relative;
+    background: white; /* Opcional: un fondo blanco pastel para los logos */
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(167, 199, 231, 0.2);
+}
+
+.carousel-track {
+    display: flex;
+    align-items: center;
+    gap: 60px; /* Espacio entre logos */
+    /* Si vas a usar animación automática, agrégala aquí */
+    animation: scroll 20s linear infinite;
+}
+
+.logo-item img {
+    height: 110px; /* Tamaño controlado de los logos */
+    width: auto;
+   /*  filter: grayscale(100%); /* Opcional: logos en gris 
+    opacity: 0.6; */
+    transition: all 0.3s ease;
+}
+
+.logo-item img:hover {
+    filter: grayscale(0%); /* A color al pasar el mouse */
+    opacity: 1;
+    transform: scale(1.4);
+}
+
+/* Animación simple de desplazamiento */
+@keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* =============================================
+   SECCIÓN: stats 
+   ============================================= */
+.stats-static {
+    background-color: whitesmoke/* #1a1a1a */; /* Fondo oscuro tipo industrial */
+    padding: 1px 5%;
+    color: black;
+    border-top: 4px solid #A7C7E7; /* El verde que usamos en los botones */
+}
+
+.stats-wrapper {
+    display: flex;
+    justify-content: space-around; /* Reparte el espacio entre los 4 */
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap; /* Clave para que en móvil bajen */
+}
+
+.stat-box {
+    text-align: center;
+    padding: 15px;
+    flex: 1;
+    min-width: 200px; /* Evita que se aplasten mucho */
+}
+
+.stat-val {
+    display: block;
+    font-size: 2.3rem;
+    font-weight: 800;
+    color: black/* #229797 */; 
+    margin-bottom: 5px;
+}
+
+.stat-desc {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 400;
+    opacity: 0.8;
+}
+
+/* RESPONSIVE - Sesión 02 */
+@media (max-width: 768px) {
+    .stats-wrapper {
+        flex-direction: column; /* Se apilan en columna en celular */
+        gap: 30px;
+    }
+    
+    .stat-box {
+        border-bottom: 1px solid #333;
+        width: 100%;
+    }
+    
+    .stat-box:last-child {
+        border-bottom: none;
+    }
+}
+/* FOOTER (pie de pagina)-------------------------------------------------------------- */
+.main-footer {
+   height: auto;
+   background-color: whitesmoke;
+   color: black;
+   padding: 30px 5%;
+   border-top: 5px solid #A7C7E7;
+}
+
+.footer-content {
+   display: flex;
+    justify-content: space-around; /* Reparte las cajas en el ancho */
+    align-items: flex-start;       /* Alinea las cajas arriba */
+    flex-wrap: wrap;               /* Por si hay poco espacio, que bajen */
+    padding: 20px;
+}
+.caja {
+    flex: 1;
+    min-width: 200px; /* Evita que se amontonen mucho */
+    margin: 10px;
+}
+
+.caja ul {
+    list-style: none; /* Quita los puntitos de la lista */
+    padding: 0;
+    margin: 0;
+}
+
+.caja li, .caja span {
+    display: flex;
+    align-items: center; /* Alinea el icono con el texto verticalmente */
+    gap: 10px;           /* Espacio entre el icono y el texto */
+    margin-bottom: 8px;  /* Espacio entre cada renglón */
+}
+
+/* Si quieres que los iconos tengan un tamaño fijo para que el texto empiece igual */
+.caja i {
+    width: 20px;
+    text-align: center;
+}
+.caja a {
+    color: black;
+    text-decoration: none;
+    background-color: transparent;
+}
+a:hover {
+    font-weight: bold;
+    color: orange;
+    border-radius: 4px;        /* Bordes redondeados para que se vea mejor */
+}
+
+/* ------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+/* modo MOVIL*/
+
+@media (max-width: 768px) {
+    .top-bar {
+        display: none; 
+    }
+}
+
+
+/*  header de categorias */
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column; /* Apila logo y menú verticalmente [cite: 418] */
+        gap: 15px;
+    }
+
+    .main-nav ul {
+        flex-direction: row; /* Categorías una debajo de otra */
+        align-items:center;
+        gap: 10px;
+    }
+    
+    .main-nav li {
+        margin: 0.5rem;
+    }
+}
+
+/* hero section (imagen) */
+@media (max-width: 768px) {
+    .hero {
+        height: 60vh; /* Bajamos la altura en celular para que se vea mejor el contenido */
+    }
+
+    .hero-content h1 {
+        font-size: 1.8rem; /* Letra más pequeña para que no se corte */
+    }
+}
+
+/* seccion card fullday */
+ @media (max-width: 768px) {
+    .cards-wrapper {
+        flex-direction: column; /* Cambia de horizontal a vertical  */
+        align-items: center;    /* Centra las tarjetas una debajo de otra */
+    }
+
+    .card {
+        width: 90%;             /* En celular las tarjetas ocupan casi todo el ancho [cite: 967] */
+    }
+}
+
+/* Footer */
+/* Estilo para el móvil según la Sesión 02 [cite: 416, 418] */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column; /* Apila las cajas verticalmente */
+        text-align:center;
+        gap: 30px; /* Esto separa las cajas entre sí de forma equilibrada */
+        padding: 40px 5%; /* Dale espacio interno para que no toque los bordes del cel */
+    }
+
+    .formulario-contacto {
+        width: 60%;
+       
+    }
+
+    .caja {
+        width: 100%; /* Obliga a la caja a usar todo el ancho del celular */
+        margin: 0 auto; /* Centra la caja físicamente */
+        
+    }
+
+}
