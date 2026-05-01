@@ -52,3 +52,54 @@ window.onload = function() {
         console.log("Auto-play reanudado");
     });
 };
+
+/* =============================================
+              LÓGICA DEL PRELOADER
+============================================= */
+// Usamos 'load' en la ventana completa, no solo en el DOM, 
+// para asegurar que las fotos pesadas de la fábrica o agregados ya estén descargadas.
+window.addEventListener('load', function() {
+    const preloader = document.getElementById('preloader');
+    
+    // Le añadimos la clase 'oculto' que creamos en el CSS
+    preloader.classList.add('oculto');
+    
+    // Opcional: Para mantener el HTML limpio, eliminamos el preloader del código 
+    // después de que termine la transición de opacidad (500 milisegundos).
+    setTimeout(() => {
+        preloader.style.display = 'none';
+    }, 500);
+});
+
+
+// SOLO PARA PRUEBAS: Obliga a que tarde 2 segundos en desaparecer
+window.addEventListener('load', function() {
+    const preloader = document.getElementById('preloader');
+    setTimeout(() => {
+        preloader.classList.add('oculto');
+    }, 8000); // 2000 ms = 2 segundos
+});
+
+
+/* =============================================
+       CARRUSEL AUTOMÁTICO DE SERVICIOS
+============================================= */
+document.addEventListener('DOMContentLoaded', () => {
+    // Buscamos todos los bloques que tengan carruseles
+    const carruseles = document.querySelectorAll('.carrusel-servicios');
+
+    carruseles.forEach(carrusel => {
+        // Encontramos todas las imágenes dentro de este carrusel
+        const slides = carrusel.querySelectorAll('.img-slide');
+        let slideActual = 0;
+
+        // Iniciar rotación si hay más de una foto
+        if (slides.length > 1) {
+            setInterval(() => {
+                slides[slideActual].classList.remove('activa');
+                slideActual = (slideActual + 1) % slides.length;
+                slides[slideActual].classList.add('activa');
+            }, 1000); // Rota cada 4 segundos
+        }
+    });
+});
