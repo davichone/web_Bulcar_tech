@@ -77,7 +77,7 @@ window.addEventListener('load', function() {
     const preloader = document.getElementById('preloader');
     setTimeout(() => {
         preloader.classList.add('oculto');
-    }, 4000); // 2000 ms = 2 segundos
+    }, 7000); // 2000 ms = 2 segundos
 });
 
 
