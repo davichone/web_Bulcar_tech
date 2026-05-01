@@ -378,102 +378,224 @@ h1, h2, h3, .formulario_titulo {
 }
 
 /* =============================================
-        section Productos / servicios (vitrina)
-   ============================================= */
-.tt-pro-serv {
-    text-align: left;
-    padding: 5px ;
-    margin-bottom: 1px;
+      SECCIÓN VITRINA (PRODUCTOS / SERVICIOS)
+============================================= */
+.vitrina-bulcar {
+    padding: 80px 5%;
+    background-color: #f4f6f9; /* Fondo muy claro para contrastar */
+    font-family: sans-serif;
 }
 
-.sub-pro-serv {
+/* --- CABECERA DE LA SECCIÓN --- */
+.vitrina-cabecera {
     display: flex;
     justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 50px;
+    border-bottom: 2px solid #e1e5eb;
+    padding-bottom: 20px;
 }
 
-.sub-pro-serv p {
+.titulos-vitrina {
+    max-width: 600px;
+}
+
+.badge-vitrina {
+    display: inline-block;
+    color: #2966C4;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-size: 0.85rem;
+    margin-bottom: 10px;
+}
+
+.tt-pro-serv {
+    font-size: 2.5rem;
+    color: #111;
+    margin: 0 0 10px 0;
+    line-height: 1.2;
+}
+
+.titulos-vitrina p {
+    color: #555;
+    font-size: 1.1rem;
     margin: 0;
 }
 
-
-
-
-.paquetes-container {
-    padding: 60px 5%;
-    background-color: #fff;
-    text-align: center;
-}
-
-.cards-wrapper {
-    display: flex;
-    flex-wrap: nowrap;         /* Permite que bajen si no caben */
-    justify-content: center; /* Centra las tarjetas */
-    gap: 30px;               /* Espacio entre tarjetas */
-    margin-top: 30px;
-}
-
-.card {
-    background: whitesmoke;     /* Color gris claro visto en clase  */
-    border-radius: 10px;     /* Bordes redondeados profesionales  */
-    width: 300px;            /* Ancho fijo en PC [cite: 780] */
-    box-shadow: 1px 1px 1px #888; /* Sombra enseñada en  04  */
-    overflow: hidden;        /* Para que la imagen no se salga de las esquinas */
-    transition: transform 0.3s;
-   
-
-}
-.ls-products {
-    text-align: left;
-    color:615A5A;
+.btn-ver-todo {
+    color: #2966C4;
+    font-weight: bold;
     text-decoration: none;
-    padding: 15px;
+    font-size: 1.05rem;
+    transition: color 0.3s;
 }
 
-.card:hover {
-    transform: scale(1.1);  /* Efecto de agrandado visto en clase  */
+.btn-ver-todo:hover {
+    color: #FFCB11; /* Tu amarillo Bulcar */
 }
 
-.card-img {
-    width: 100%;             /* La imagen ocupa todo el ancho de la tarjeta [cite: 958] */
-    height: 180px;           /* Altura fija para que todas se vean iguales [cite: 1387] */
+/* --- GRID DE TARJETAS --- */
+.grid-vitrina {
+    display: grid;
+    /* Esto hace que sea responsivo automáticamente sin media queries complejas */
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+/* --- TARJETA INDUSTRIAL INTERACTIVA --- */
+.card-industrial {
+    position: relative;
+    height: 380px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    background-color: #000;
+}
+
+/* La imagen de fondo */
+.card-bg {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
     object-fit: cover;
+    transition: transform 0.6s ease;
 }
 
-.card-info {
-    padding: 15px;
-    text-align: left;
+/* Filtro oscuro que se oscurece más al pasar el mouse */
+.card-filtro {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: linear-gradient(to top, rgba(15, 20, 25, 0.95) 0%, rgba(15, 20, 25, 0.4) 50%, rgba(15, 20, 25, 0.1) 100%);
+    transition: background 0.4s ease;
 }
 
-.btn-detalle {
-    
-    text-align: center;
+/* Contenido de texto que se superpone */
+.card-contenido {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 30px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 100%;
+}
+
+.card-encabezado {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    border-left: 3px solid #FFCB11;
+    padding-left: 15px;
+    transition: transform 0.4s ease;
+}
+
+.card-encabezado h3 {
+    font-size: 1.4rem;
+    margin: 0;
+    font-weight: 700;
+}
+
+.card-encabezado i {
+    color: #61C4FA;
+    font-size: 1.5rem;
+}
+
+/* La información que está oculta y aparece al pasar el mouse */
+.card-oculto {
+    max-height: 0; /* Oculto inicialmente */
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease, opacity 0.5s ease;
+}
+
+.lista-vitrina {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px 0;
+}
+
+.lista-vitrina li {
+    font-size: 0.95rem;
+    color: #d1d5db;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.lista-vitrina i {
+    color: #FFCB11;
+    font-size: 0.8rem;
+}
+
+.btn-vitrina {
     display: block;
-    background: #4C8DBF;       /* Estilo de botón del material  */
+    text-align: center;
+    background-color: #2966C4;
     color: white;
     text-decoration: none;
-    padding: 10px;
-    margin: 1px auto;
-    margin-top: 15px;
-    border-radius: 9px;
-    max-width: 70%;
-}
-a:hover {
+    padding: 12px;
+    border-radius: 6px;
     font-weight: bold;
-    background-color: #FFCB11;
-    color:black;
-    border-radius: 5px;        /* Bordes redondeados para que se vea mejor */
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    transition: background-color 0.3s;
 }
 
-/* modo movil */
-/* seccion card fullday */
- @media (max-width: 768px) {
-    .cards-wrapper {
-        flex-direction: column; /* Cambia de horizontal a vertical  */
-        align-items: center;    /* Centra las tarjetas una debajo de otra */
+.btn-vitrina:hover {
+    background-color: #FFCB11;
+    color: #111;
+}
+
+/* --- EFECTOS HOVER (La magia de la interacción) --- */
+.card-industrial:hover .card-bg {
+    transform: scale(1.1); /* La foto hace zoom in lento */
+}
+
+.card-industrial:hover .card-filtro {
+    background: linear-gradient(to top, rgba(15, 20, 25, 0.98) 0%, rgba(15, 20, 25, 0.8) 100%);
+}
+
+.card-industrial:hover .card-encabezado {
+    transform: translateY(-10px); /* El título sube un poco */
+}
+
+.card-industrial:hover .card-oculto {
+    max-height: 250px; /* Se despliega la lista y el botón */
+    opacity: 1;
+}
+
+/* --- RESPONSIVE MÓVIL --- */
+@media (max-width: 768px) {
+    .vitrina-cabecera {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    
+    .tt-pro-serv {
+        font-size: 2rem;
     }
 
-    .card {
-        width: 90%;             /* En celular las tarjetas ocupan casi todo el ancho [cite: 967] */
+    /* En móvil no hay "hover", así que mostramos la info directamente */
+    .card-oculto {
+        max-height: 250px;
+        opacity: 1;
+    }
+    
+    .card-industrial {
+        height: auto;
+        min-height: 400px;
+    }
+    
+    .card-filtro {
+        background: linear-gradient(to top, rgba(15, 20, 25, 0.98) 0%, rgba(15, 20, 25, 0.6) 100%);
     }
 }
 
