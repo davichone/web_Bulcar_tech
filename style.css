@@ -126,7 +126,7 @@ h1, h2, h3, .formulario_titulo {
 .main-nav a {   /* editar las categorias (anchor, ancla) -> "a" */
    
   color: black;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     transition: 0.5s;
     text-decoration: none;
 }
@@ -136,13 +136,29 @@ h1, h2, h3, .formulario_titulo {
     font-weight: bold;
     
 }
-
-/* 1. El contenedor del logo ahora sí dictará la altura */
-/* 1. Forzamos al contenedor a mantener su tamaño */
+/* =============================================
+             AJUSTE PERFECTO DEL LOGO
+============================================= */
 .logo {
-    color: black;
+    display: flex;
+    align-items: center; /* Centra el logo verticalmente con el menú */
+    text-decoration: none;
 }
 
+.logo img {
+    /* AQUÍ ESTÁ LA MAGIA */
+    /* Limita la altura del logo para que nunca estire el header */
+    max-height: 100px; 
+    
+    /* El ancho automático mantiene la proporción perfecta sin deformar tu logo */
+    width: auto; 
+    
+    /* Le dice al navegador que el logo debe encajar estrictamente en ese espacio */
+    object-fit: contain; 
+}
+
+/* Si sientes que el logo se ve muy chiquito, puedes subir el max-height a 60px o 70px, 
+   pero 50px o 55px es el estándar corporativo para barras de navegación. */
 /* modo MOVIL */
 @media (max-width: 768px) {
     .header-container {
@@ -965,117 +981,6 @@ h1, h2, h3, .formulario_titulo {
 }
 
 
-
-
-/* ***************************cotizar.html **************************/
-
-/* =============================================
-                      section Cotizar
-   ============================================= */
-.cotizar-main {
-    flex: 1; /* Para el Sticky Footer que ya configuramos */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #f0f2f5; /* Un gris muy claro para que la tarjeta resalte */
-    padding: 60px 20px;
-}
-
-.cotizar-container {
-    width: 100%;
-    max-width: 600px;
-}
-
-.cotizar-card {
-    background: #ffffff;
-    border-radius: 15px;
-    padding: 40px;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-    text-align: center;
-}
-
-.icon-main {
-    font-size: 50px;
-    color: #229797; /* El verde/celeste de tu marca */
-    margin-bottom: 20px;
-}
-
-.cotizar-header h1 {
-    font-size: 2rem;
-    color: #333;
-    margin-bottom: 10px;
-}
-
-.cotizar-header p {
-    color: #666;
-    margin-bottom: 30px;
-}
-
-/* Sección de botón de WhatsApp */
-.opcion-wsp {
-    background: #f9f9f9;
-    padding: 25px;
-    border-radius: 10px;
-    border: 1px solid #eee;
-    margin-bottom: 25px;
-}
-
-.opcion-wsp h3 {
-    margin-bottom: 10px;
-    color: #333;
-}
-
-.wsp-btn-link {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    background-color: #25D366; /* Verde Oficial WhatsApp */
-    color: white;
-    text-decoration: none;
-    padding: 15px 25px;
-    border-radius: 8px;
-    font-weight: bold;
-    font-size: 1.1rem;
-    transition: 0.3s;
-}
-
-.wsp-btn-link:hover {
-    background-color: #1DA851;
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
-}
-
-/* Íconos de información extra */
-.opcion-info {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-
-.info-item {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 0.85rem;
-    color: #888;
-}
-
-.info-item i {
-    color: #229797;
-}
-
-/* Ajuste móvil */
-@media (max-width: 480px) {
-    .cotizar-card {
-        padding: 25px 15px;
-    }
-    .cotizar-header h1 {
-        font-size: 1.5rem;
-    }
-}
-
 /* =============================================
               PÁGINA: AGREGADOS
 ============================================= */
@@ -1516,7 +1421,7 @@ h1, h2, h3, .formulario_titulo {
 
 
 /* =============================================
-        PÁGINA: SERVICIOS (EDITORIAL PREMIUM)
+        PÁGINA: SERVICIOS & MQUINARIA
 ============================================= */
 .servicios-premium {
     background-color: #ffffff;
@@ -1535,11 +1440,13 @@ h1, h2, h3, .formulario_titulo {
     background-color: #f8f9fa;
     background-image: radial-gradient(#e1e5eb 1px, transparent 1px);
     background-size: 40px 40px;
+    border-top: 4px solid #2966C4; 
 }
 
 .hero-text-box {
     max-width: 800px;
     position: relative;
+  
 }
 
 .linea-decorativa {
@@ -1547,6 +1454,7 @@ h1, h2, h3, .formulario_titulo {
     height: 6px;
     background-color: #FFCB11;
     margin-bottom: 30px;
+    
 }
 
 .hero-editorial h1 {
@@ -1772,4 +1680,158 @@ h1, h2, h3, .formulario_titulo {
 
     .hero-editorial h1 { font-size: 3.5rem; }
     .info-grid { grid-template-columns: 1fr; }
+}
+
+
+/* =============================================
+              PÁGINA: CONTACTO & WSP
+============================================= */
+.pagina-contacto {
+    background-color: #f8f9fa;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* --- HERO --- */
+.hero-contacto {
+    background: linear-gradient(rgba(10, 20, 30, 0.8), rgba(10, 20, 30, 0.9)), url('img/fondo-contacto.jpg') center/cover;
+    padding: 100px 5% 80px;
+    text-align: center;
+    color: white;
+}
+
+.hero-contacto h1 {
+    font-size: 3.2rem;
+    margin-bottom: 20px;
+}
+
+/* --- CONTENEDOR SPLIT --- */
+.seccion-contacto-info {
+    padding: 80px 5%;
+    margin-top: -60px;
+}
+
+.contenedor-contacto {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+/* IZQUIERDA: INFO AZUL */
+.info-directa {
+    width: 40%;
+    background-color: #2966C4;
+    color: white;
+    padding: 60px 45px;
+}
+
+.info-directa h2 {
+    color: #FFCB11;
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+}
+
+.bloques-info {
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+}
+
+.item-info {
+    display: flex;
+    gap: 20px;
+}
+
+.icono-cto {
+    background: rgba(255, 255, 255, 0.15);
+    width: 55px; height: 55px;
+    display: flex; justify-content: center; align-items: center;
+    border-radius: 50%;
+    font-size: 1.4rem;
+    color: #FFCB11;
+    flex-shrink: 0;
+}
+
+.texto-cto strong { display: block; font-size: 1.1rem; margin-bottom: 5px; }
+.texto-cto span { display: block; opacity: 0.9; }
+.nota-cto { font-size: 0.85rem; opacity: 0.6; font-style: italic; margin-top: 4px; }
+
+/* DERECHA: WSP CARD */
+.formulario-box {
+    width: 60%;
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.icon-main-wsp {
+    font-size: 3.5rem;
+    color: #2966C4;
+    margin-bottom: 20px;
+}
+
+.cabecera-form h3 { font-size: 2rem; color: #111; margin-bottom: 10px; }
+.cabecera-form p { color: #666; margin-bottom: 35px; line-height: 1.6; }
+
+.opcion-wsp-card {
+    background-color: #f4f7fa;
+    padding: 40px;
+    border-radius: 12px;
+    border: 1px solid #e1e5eb;
+    margin-bottom: 30px;
+}
+
+.opcion-wsp-card h4 { font-size: 1.4rem; margin-bottom: 15px; color: #2966C4; }
+.opcion-wsp-card p { margin-bottom: 30px; color: #555; }
+
+/* BOTÓN WHATSAPP PREMIUN */
+.wsp-btn-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    background-color: #25D366;
+    color: white;
+    text-decoration: none;
+    padding: 18px 35px;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+.wsp-btn-link:hover {
+    background-color: #1da851;
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
+}
+
+/* EXTRAS */
+.info-extra-wsp {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.95rem;
+    color: #888;
+}
+
+.info-item i { color: #FFCB11; }
+
+/* RESPONSIVE */
+@media (max-width: 992px) {
+    .contenedor-contacto { flex-direction: column; }
+    .info-directa, .formulario-box { width: 100%; }
+    .hero-contacto h1 { font-size: 2.5rem; }
+    .formulario-box { padding: 40px 20px; }
 }

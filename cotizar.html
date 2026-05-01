@@ -12,13 +12,13 @@
 
 <body>
 
-     <header class="main-header">
+      <!-- contenedor para el logo y las categorias-->
+   <header class="main-header">
         <div class="header-container">
-            <div class="logo">
-                <h1>Bulcar Tech</h1>
-                <!-- <h1>Bulcar tech, agregados en toda la selva central</h1> <a href="/">
-                <img src="img/logo_3.png" alt="Agregados"> </a> -->
-            </div>
+            
+            <a href="index.html" class="logo">
+                <img src="img/logo_original_white.png" alt="Bulcar Tech - Logística y Construcción">
+            </a>
 
             <nav class="main-nav">
                 <ul>
@@ -26,11 +26,7 @@
                     <li><a href="agregados.html">Agregados</a></li>
                     <li><a href="blocks.html">Bloques</a></li>
                     <li><a href="maquinaria.html">Maquinaria & Servicios</a></li>
-                    <li><a href="contacto.html">Contacto</a></li>
-                    <div class="boton-cotizar">
-                    <li><a href="cotizar.html" class="btn-cotizar">Cotizar Ahora</a></li>
-                    </div>
-
+                    <li class="item-cotizar"><a href="cotizar.html" class="btn-cotizar">Cotizar Ahora</a></li>
                 </ul>
             </nav>
         </div>
@@ -73,38 +69,88 @@
  
 
     <!-- containt -->
-    <main class="cotizar-main">
-        <section class="cotizar-container">
-            <div class="cotizar-card">
-                <div class="cotizar-header">
-                    <i class="fa-solid fa-file-invoice-dollar icon-main"></i>
-                    <h1>Solicita tu Cotización</h1>
-                    <p>Estamos listos para ayudarte con tus proyectos.</p>
-                </div>
+  <main class="pagina-contacto">
 
-                <div class="cotizar-options">
-                    <div class="opcion-wsp">
-                        <h3>Atención Inmediata</h3>
-                        <p>Habla con un asesor ahora mismo por WhatsApp.</p>
-                        <a href="https://wa.me/51919514239  ?text=Hola%20Bulcar%20Teach,%20estoy%20interesado%20en%20una%20cotizaci%C3%B3n" class="wsp-btn-link" target="_blank">
-                            <i class="fa-brands fa-whatsapp"></i> Contactar por WhatsApp
-                        </a>
+    <section class="hero-contacto">
+        <div class="hero-texto-contacto">
+            <h1>Hablemos de tu próximo proyecto</h1>
+            <p>Atención directa, cotizaciones exactas y soluciones logísticas a la medida. Nuestro equipo de operaciones está listo para respaldar tu obra.</p>
+        </div>
+    </section>
+
+    <section class="seccion-contacto-info">
+        <div class="contenedor-contacto">
+
+            <div class="info-directa">
+                <h2>Información Operativa</h2>
+                <p class="subtitulo-info">Visítanos en nuestra sede central o coordina una inspección técnica en campo.</p>
+                
+                <div class="bloques-info">
+                    <div class="item-info">
+                        <div class="icono-cto"><i class="fa-solid fa-location-dot"></i></div>
+                        <div class="texto-cto">
+                            <strong>Oficina Central</strong>
+                            <span>Villa Rica - Perú</span>
+                            <span class="nota-cto">Soporte logístico a toda la selva central</span>
+                        </div>
                     </div>
 
-                    <div class="opcion-info">
-                        <div class="info-item">
-                            <i class="fa-solid fa-clock"></i>
-                            <span>Respuesta en menos de 30 min.</span>
+                    <div class="item-info">
+                        <div class="icono-cto"><i class="fa-solid fa-envelope"></i></div>
+                        <div class="texto-cto">
+                            <strong>Correo Corporativo</strong>
+                            <span>operaciones@bulcartech.com</span>
+                            <span class="nota-cto">Para envíos de expedientes y planos</span>
                         </div>
-                        <div class="info-item">
-                            <i class="fa-solid fa-shield-halved"></i>
-                            <span>Atención 100% segura.</span>
+                    </div>
+
+                    <div class="item-info">
+                        <div class="icono-cto"><i class="fa-solid fa-calendar-check"></i></div>
+                        <div class="texto-cto">
+                            <strong>Horario de Despacho</strong>
+                            <span>Lunes a Sábado: 7:00 AM - 6:00 PM</span>
+                            <span class="nota-cto">Atención de emergencias 24/7</span>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
-    </main>
+
+            <div class="formulario-box box-whatsapp-directo">
+                <div class="cabecera-form">
+                    <i class="fa-solid fa-file-invoice-dollar icon-main-wsp"></i>
+                    <h3>Solicitar Cotización</h3>
+                    <p>Para garantizar una respuesta rápida, centralizamos nuestros presupuestos directamente vía WhatsApp con nuestra gerencia de operaciones.</p>
+                </div>
+
+                <div class="opcion-wsp-card">
+                    <h4>Atención Personalizada</h4>
+                    <p>Haz clic en el botón de abajo para iniciar un chat. Envíanos el tipo de servicio, lugar de obra y volumen requerido.</p>
+                    
+                    <a href="https://wa.me/51919514239?text=Hola%20Bulcar%20Tech,%20estoy%20interesado%20en%20una%20cotizaci%C3%B3n" class="wsp-btn-link" target="_blank">
+                        <i class="fa-brands fa-whatsapp"></i> Contactar por WhatsApp
+                    </a>
+                </div>
+
+                <div class="info-extra-wsp">
+                    <div class="info-item">
+                        <i class="fa-solid fa-bolt"></i>
+                        <span>Respuesta en minutos</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fa-solid fa-shield-halved"></i>
+                        <span>Atención 100% segura</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="mapa-ubicacion">
+        <iframe src="https://maps.google.com/maps?q=BULCAR%20S.R.L,%207PFP%2BHH7,%20Fernando%20Belaunde%20Terry,%20Villa%20Rica%2019300,%20Per%C3%BA&t=&z=17&ie=UTF8&iwloc=&output=embed" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </section>
+
+</main>
     
     <!-- pie de pagina -->
     <footer class="main-footer">
